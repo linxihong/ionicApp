@@ -1,0 +1,52 @@
+page-index {
+
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 8px;
+    display: inline-block;
+    opacity: 0.2;
+    pointer-events: auto;
+    border-radius: 18%;
+    background: black
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background:yellow;
+    }
+.new{
+      font-size:15px;
+      padding-right: 5px;
+    }
+    .line1{
+       
+        border: 1px solid #333;
+    }
+    .line2{
+       
+        border: 2px solid yellow;
+    }
+    ::-webkit-scrollbar{
+        display: none
+    }
+    .scroll-zoom-wrapper{
+        margin-top:-22px
+    }
+    .over{
+        background: #E9E9E9;
+    margin-left: 11px;
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+    font-size: 15px;
+    font-style: italic;
+    border-radius: 36%;
+    }
+  .searchbar{
+      background: #fff;
+      border:none;
+  }
+ ion-header{
+     top:12px;
+ }

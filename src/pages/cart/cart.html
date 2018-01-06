@@ -1,0 +1,98 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="isUserLogin">
+      <!--登录-->
+      <!--cartList.lenth==0-->
+      <div  style="text-align:center" 
+       *ngIf="cartList.length==0">
+      <img src="assets/img/404/404_img2.png" alt="">
+        <br>
+        <h3>购物车是空</h3>
+        <br>
+        <button (click)="jumpToIndex()" ion-button block color="secondary">
+          去逛逛
+        </button>
+    
+         </div>
+         <!--cartList.length >0-->
+         <ion-list *ngIf="cartList.length>0">
+           <ion-item *ngFor="let product of cartList;
+           let myIndex=index ">
+             <!--将复选框固定在列表项左边-->
+             <ion-checkbox item-start>
+         </ion-checkbox>
+                
+         <ion-thumbnail item-end>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-3>
+                  <img [src]="'assets/'+ product.pic"  alt="">
+                </ion-col>
+                <ion-col>
+                  <h5>{{product.title}}</h5>
+                  <p>{{product.price}}</p>
+                  <br>
+                 <button 
+                 (click)="modifyCartCount(true,myIndex)"
+                 style="display:inline-block" ion-button  color="dark" clear>
+                   
+                   -</button>
+                  <span>{{product.count}}</span>
+                  <button 
+                  (click)="modifyCartCount(false,myIndex)"
+                  style="display:inline-block;"  ion-button color="dark" clear>+</button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+           
+         </ion-thumbnail>
+           </ion-item>
+         </ion-list>
+
+  </div>
+
+  <div style="text-align:center" *ngIf="!isUserLogin">
+    <!--未登录-->
+    <img src="assets/img/404/404_img2.png" alt="">
+    <br>
+    <h3>您未登录</h3>
+    <br>
+    <button (click)="jumpToLogin()" ion-button block color="secondary">
+      去登录
+    </button>
+  </div>
+</ion-content>
+
+<ion-footer>
+   <ion-grid style="
+    margin-bottom: -12px;"  *ngIf="isUserLogin && cartList.length>0">
+     <ion-row align-items-center>
+       <ion-col col-2>
+         <!--全选的复选框-->
+         <ion-checkbox></ion-checkbox>
+       </ion-col>
+       <ion-col col-4>
+         {{"合计："+sumAll()}}
+       </ion-col>
+       <ion-col offset-2>
+         <button (click)="jumpToOrderConfirm()" ion-button color="danger">
+           去结算
+         </button>
+       </ion-col>
+     </ion-row>
+   </ion-grid>
+</ion-footer>

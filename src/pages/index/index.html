@@ -1,0 +1,208 @@
+<!--
+  Generated template for the IndexPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <!--<ion-navbar>
+    <ion-title>首页</ion-title>
+  </ion-navbar>-->
+  <!--头部搜索框-->
+  <ion-grid>
+    <ion-row align-items-center justify-centent-center>
+      <ion-col col-2>
+        <button ion-button clear>
+          <ion-icon name="camera"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <!--搜索框-->
+        <!--定义enter按键的方法-->
+        <ion-searchbar (keyup.enter)="jumpToMyliat()" [(ngModel)]='myInput'></ion-searchbar>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear>
+          <ion-icon name="chatboxes"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!--轮播图-->
+  <ion-slides style="height:150px" *ngIf="carouselItems.length>0" pager autoplay=3000 speed=1000
+    loop=true> 
+    <ion-slide *ngFor="let item of carouselItems">
+      <img [src]="'assets/'+item.img" alt="">
+    </ion-slide>
+     </ion-slides>
+     <!--两张小图-->
+     <ion-grid>
+       <ion-row>
+         <ion-col col-6>
+           <img src="assets/img/index/mmexport1511921618194.jpg" alt="">
+         </ion-col>
+         <ion-col col-6>
+           <img src="assets/img/index/mmexport1511921621737.jpg" alt="">
+         </ion-col>
+
+       </ion-row>
+       <ion-row>
+         <ion-col offset-3>
+           <span class="new">新品上架</span><span style="font-size: 10px;">/ NEW ARRIVL</span>
+         </ion-col>
+       </ion-row>
+       <ion-row>
+         <ion-col col-3>
+           <div class="line1"></div>
+         </ion-col>
+         <ion-col col-6 >
+           <div class="line2"></div>
+         </ion-col>
+         <ion-col col-3 >
+           <div class="line1"></div>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
+  <!--横向滚动-->
+     <ion-scroll style="height:200px;white-space:nowrap"
+    scrollX="true">
+       <ion-card style="display:inline-block;margin-top: -27px;" *ngFor="let item of newArrivalItems">
+         <img style="height:150px" [src]="'assets/'+item.pic" alt="">
+         <ion-card-content>
+           <h3 style="font-size:10px">{{item.details}}</h3>
+           <p style="color:red;font-size: 20px;">¥{{item.price}} <span style="text-decoration: line-through;
+    font-size: 10px; color:darkgray;
+    margin-left: 5px;">原价¥389.00</span></p>
+         </ion-card-content>
+       </ion-card>
+     </ion-scroll>
+  <!--缩类图列表-->
+  <!--三个小图-->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <img src="assets/img/index/mmexport1511939349372.jpg" alt="">
+      </ion-col>
+       <ion-col col-4>
+         <img src="assets/img/index/mmexport1511939349494.jpg" alt="">
+       </ion-col>
+        <ion-col col-4>
+          <img src="assets/img/index/mmexport1511939351611.jpg" alt="">
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--热卖推荐-->
+  <ion-grid>
+     <ion-row>
+         <ion-col offset-3>
+           <span class="new">热卖推荐</span><span style="font-size: 10px;">/ BEST PRODUCTS</span>
+         </ion-col>
+       </ion-row>
+       <ion-row>
+         <ion-col col-3>
+           <div class="line1"></div>
+         </ion-col>
+         <ion-col col-6 >
+           <div class="line2"></div>
+         </ion-col>
+         <ion-col col-3 >
+           <div class="line1"></div>
+         </ion-col>
+       </ion-row>
+  </ion-grid>
+  <!--缩例图-->
+  <ion-grid>
+    <ion-row>
+      <!--navPush跳转-->
+      <ion-col col-6 [navPush]="detailPage"
+      [navParams]="{id:item.pid}"
+       *ngFor="let item of topSaleItems">
+        <img [src]="'assets/'+item.pic" alt="">
+        <p style="font-size: 10px;height: 32px;
+    overflow: hidden;">{{item.details}}</p>
+        <span style="color: red;">¥{{item.price}}</span> <span style="text-decoration: line-through;
+    font-size: 5px;">原价¥389.00</span>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+
+<!--限时促销-->
+<ion-grid>
+     <ion-row>
+         <ion-col offset-1>
+           <span class="new">限时促销</span><span style="font-size: 10px;">/ LIMITED TIME PROMOTION</span>
+         </ion-col>
+       </ion-row>
+       <ion-row>
+         <ion-col col-3>
+           <div class="line1"></div>
+         </ion-col>
+         <ion-col col-6 >
+           <div class="line2"></div>
+         </ion-col>
+         <ion-col col-3 >
+           <div class="line1"></div>
+         </ion-col>
+       </ion-row>
+  </ion-grid>
+  <!--限时轮播图-->
+  <ion-slides style="height:200px" *ngIf="newArrivalItems.length>0"  speed=1000 autoplay=3000
+    loop=true>
+    <ion-slide *ngFor="let item of newArrivalItems">
+      <div style="float:left; width:50%">
+          <img [src]="'assets/'+item.pic" alt="">
+      </div>
+      <div style="float:left; width:50%" >
+         <p style="font-size:10px; height:32px; overflow:hidden;padding: 0 6px;">{{item.details}}</p>
+          <p style="font-size:10px;text-decoration: line-through;">原价 ¥140.00</p>
+          <p style="color:red; height:8px">¥ {{item.price}}</p>
+          <p class="over">促销已经结束!!</p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+<!--四张小图-->
+<ion-grid>
+  <ion-row>
+  <ion-col col-6>
+    <img src="assets/img/index/mmexport1511945153359.jpg" alt="">
+  </ion-col>
+  <ion-col col-6>
+    <img src="assets/img/index/mmexport1511945153454.jpg" alt="">
+  </ion-col>
+  <ion-col col-6>
+    <img src="assets/img/index/mmexport1511945153561.jpg" alt="">
+  </ion-col>
+  <ion-col col-6>
+    <img src="assets/img/index/mmexport1511945154644.jpg" alt="">
+  </ion-col>
+  </ion-row>
+</ion-grid>
+<!--包邮四块-->
+<ion-grid>
+  <ion-row>
+    <ion-col col-6>
+      <p>满2000元包邮</p>
+      <h5 style="font-size: 10px;">全场订单满2000元包邮</h5>
+    </ion-col>
+    <ion-col col-6>
+      <p>买就送</p>
+      <h5 style="font-size: 10px;">在本店买任何产品有精美礼品送</h5>
+    </ion-col>
+    <ion-col col-6>
+      <p>贴心售后</p>
+      <h5 style="font-size: 10px;">7*12小时在线客服随时为您服务</h5>
+    </ion-col>
+    <ion-col col-6>
+      <p>店铺优惠券</p>
+      <h5 style="font-size: 10px;">每周均有优惠券限量领取，不要错过额</h5>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

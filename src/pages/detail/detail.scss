@@ -1,0 +1,53 @@
+page-detail {
+
+}
+.ptitle{
+  font-size: 15px;
+  font-weight: bold;
+}
+.money{
+    display: block;
+    height: 20px;
+    width: 75px;
+    background: yellow;
+    color: black;
+    line-height: 20px;
+    text-align: center;
+    font-size: 10px;
+}
+.tprice{
+    margin-left: 5px;
+    color: red;
+    font-size: 19px;
+}
+.yprice{
+    text-decoration: line-through;
+    color: rgba(0,0,0,0.5);
+    font-size: 8px;
+    margin-left: 5px;
+}
+.shuochu{
+    margin-left: 5px;
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+}
+.star{
+    color: rgba(0,0,0,0.6);
+}
+.ping{
+    margin-left: 3px;font-size: 7px;color: rgba(0,0,0,0.7);
+}
+.juin{
+    background: #efd8d8;
+    height: 81%;
+    color: #fff;
+    margin-top: 0px;
+    margin-left: 10px;
+    color: red;   
+}
+.dtitle{
+    font-size: 10px;
+    text-align: center;
+    margin-left: 13px;
+}

@@ -1,0 +1,81 @@
+<!--
+  Generated template for the DetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>商品详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<!--异常处理-->
+<ion-content padding *ngIf="detailInfo">
+  <!--轮播图-->
+    
+       <img [src]="'assets/'+detailInfo.picList[0].md" alt="">
+  <!--标题-->
+  <p class="ptitle">{{detailInfo.title}}</p>
+  <!--满减-->
+  <span class="money">满200减10</span>
+  <!---价格-->
+  <p><span style="color: red;">特价</span>
+  <span class="tprice">¥{{detailInfo.price}}</span>
+  <span class="yprice">原价：¥389</span> <span class="shuochu">已售出<b style="color:red">0</b>件</span>
+  </p>
+  
+<!--好评-->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <ion-icon name="star" class="star" ></ion-icon><span class="ping" >好评度100% </span>
+      </ion-col>
+      <ion-col col-4>
+       <ion-icon name="star" class="star" ></ion-icon><span class="ping" >评价4</span>
+      </ion-col >
+      <ion-col col-4>
+         <ion-icon name="star" class="star" ></ion-icon><span class="ping" >晒单0 </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<!--操作-->
+
+</ion-content>
+<!--底部-->
+
+<ion-footer>
+  <!--操作-->
+  <!--1.跳转 两种方法 属性跳转方式-->
+<ion-grid>
+  <ion-row>
+  <ion-icon col-2>
+    <button [navPush]="pageIndex" ion-button clear color="dark">
+      <ion-icon name="home"></ion-icon>
+    </button>
+  </ion-icon>
+  <ion-icon col-2>
+    <button [navPush]="pageCart"  ion-button clear color="dark" >
+      <ion-icon name="cart"></ion-icon>
+    </button>
+  </ion-icon>
+  <ion-icon col-4>
+    <!--方法：跳转-->
+    <button (click)="addToCart()"  ion-button  color="dark" clear block class="juin">
+      加入购物车
+    </button>
+  </ion-icon>
+  <ion-icon>
+    <button ion-button [navPush]="pageNotFound"  color="danger">
+      立即购买
+    </button>
+  </ion-icon>
+  </ion-row>
+</ion-grid>
+<!--如何去掉底部的导航
+   
+-->
+</ion-footer>

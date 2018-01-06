@@ -1,0 +1,36 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+<ion-list  >
+  <ion-item class="reg-input">
+  <ion-label>账号</ion-label>
+  <ion-input placeholder="手机/用户名/邮箱" [(ngModel)]="uname"></ion-input>
+  </ion-item>
+  <ion-item class="reg-input">
+  <ion-label>设置密码</ion-label>
+  <ion-input type="password" placeholder="请输入密码" [(ngModel)]="upwd"></ion-input>
+  </ion-item>
+  <ion-item class="reg-input">
+  <ion-label>确认密码</ion-label>
+  <ion-input type="password" placeholder="请输入密码" [(ngModel)]="repwd"></ion-input>
+  </ion-item>
+  
+</ion-list>
+ <span>{{upwd==""&&repwd==""?"":(upwd==repwd?"可以使用该密码":"密码不一致")}}</span>
+<p class="reg-text">填写要申请的账号</p>
+<button ion-button color="primarg" round class="reg-btn" (click)="btnReg()">注册</button>
+
+<p class="reg-text" (click)="jumpToLogin()">已有账号？请直接登陆</p>
+</ion-content>

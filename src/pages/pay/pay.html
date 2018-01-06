@@ -1,0 +1,71 @@
+<!--
+  Generated template for the PayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header style="opacity:0.9">
+
+  <ion-navbar>
+    <ion-title>支付</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-content style="opacity:0.9">
+  
+   <!--顶部透明-->
+  <div style="height:300px;width:100%;background:rgba(0,0,0,0.5)">
+
+  </div>
+
+  <ion-grid style="opacity:1">
+    <!--align-items-center行文本居中-->
+    <ion-row align-items-center>
+      <ion-col col-3>
+        <button (click)="closeModal(false)" ion-button clear>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <h3>确认付款</h3>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button clear>
+          <ion-icon name="help"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <!--justify-content-center水平居中-->
+    <ion-row justify-content-center  >
+      <ion-col style="text-align:center">
+        <!--渲染出来价格-->
+        <h3>{{totalPrice}}</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align:left">
+        <span>支付账号</span>
+      </ion-col>
+      <ion-col style="text-align:right">
+        <span>****@gmail.com</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align:left">
+        <span>付款账号</span>
+      </ion-col>
+      <ion-col style="text-align:right">
+        <span>中信信用卡</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button 
+  (click)="showLoading()"
+  block ion-button color="secondary">
+    支付
+  </button>
+
+
+</ion-content>

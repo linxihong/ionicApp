@@ -1,0 +1,33 @@
+<!--
+  Generated template for the MyListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>商品列表</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item text-wrap *ngFor = "let tmp of myList;let myIndex = index" (click)="jumpToDetail(myIndex)">
+     <ion-thumbnail item-start>
+       <img [src]="'assets/'+tmp.pic" alt="">
+     </ion-thumbnail>
+     <h3>{{tmp.title}}</h3>
+     <!--过滤渲染器-->
+     <h5>{{tmp.price | currency:'CNY':true}}</h5>
+  </ion-item>
+  <!--下拉加载更多-->
+  <p *ngIf="nowPage > totalPages">我是有底线的</p>
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)" *ngIf="nowPage <= totalPages">
+  <ion-infinite-scroll-content loadingText="正在加载中...">
+
+  </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
